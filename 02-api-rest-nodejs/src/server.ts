@@ -1,17 +1,5 @@
-import fastify from 'fastify'
-// import crypto from 'node:crypto'
-import { knex } from './database'
+import { app } from './app'
 import { env } from './env'
-
-const app = fastify()
-
-app.get('/hello', async () => {
-  const transaction = await knex('transactions')
-    .where('amount', 1000)
-    .select('*')
-
-  return transaction
-})
 
 app
   .listen({
